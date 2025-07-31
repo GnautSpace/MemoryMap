@@ -20,12 +20,11 @@ type Props = {
 };
 
 function UserView({ markers }: Props) {
-  const center = markers.length > 0
+  const center: [number, number] = markers.length > 0
     ? [markers[0].lat, markers[0].lng]
     : [34.7025, 135.4959];
 
   return (
-
     <MapContainer center={center} zoom={12} style={{ height: '100vh' }}>
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
       {markers.map((marker, idx) => {

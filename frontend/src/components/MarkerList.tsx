@@ -1,28 +1,20 @@
 import { useState } from 'react';
 import '../MapView.css';
-
-type Marker = {
-  lat: number;
-  lng: number;
-  title: string;
-  note?: string;
-  placeName: string;
-  iconType: string;
-};
+import type { MarkerType } from '../types';
 
 type Props = {
-  markers: Marker[];
-  onRouteTo: (marker: Marker) => void;
+  markers: MarkerType[];
+  onRouteTo: (marker: MarkerType) => void;
   userLocation?: { lat: number; lng: number };
   onEdit: (idx: number) => void;
   onDelete: (idx: number) => void;
-  onUpdate: (idx: number, updatedMarker: Marker) => void;
+  onUpdate: (idx: number, updatedMarker: MarkerType) => void;
 };
 
 
 function MarkerList({ markers, onRouteTo, userLocation, onEdit, onDelete, onUpdate }: Props) {
   const [editIndex, setEditIndex] = useState<number | null>(null);
-  const [editedMarker, setEditedMarker] = useState<Marker | null>(null);
+  const [editedMarker, setEditedMarker] = useState<MarkerType | null>(null);
 
   const handleSelect = (selectedIndex: string) => {
     const idx = parseInt(selectedIndex);
@@ -68,7 +60,10 @@ function MarkerList({ markers, onRouteTo, userLocation, onEdit, onDelete, onUpda
                     <button
                       onClick={() => {
                         if (editedMarker) {
-                          onUpdate(idx, editedMarker);
+                          onUpdate(idx, {
+                            ...editedMarker!,
+                            note: editedMarker?.note ?? '',
+                          });
                           setEditIndex(null);
                           setEditedMarker(null);
                         }

@@ -52,7 +52,7 @@ function AddMarkerForm({ onAddMarker }: Props) {
             lat: parseFloat(lat),
             lng: parseFloat(lng),
             title,
-            note,
+            note: note || "",
             placeName: title,
             iconType,
         });
