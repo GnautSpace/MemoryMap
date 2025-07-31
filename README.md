@@ -15,7 +15,7 @@
 
 ## Live Demo
 
-Frontend deployed on Netlify: [LIVE](https://memory-map-coral.vercel.app/)
+[LIVE](https://memory-map-coral.vercel.app/)
 
 ---
 
@@ -33,7 +33,7 @@ Frontend deployed on Netlify: [LIVE](https://memory-map-coral.vercel.app/)
 
 ```bash
 npm install
-npm start
+node server.js
 ```
 
 ### Note
