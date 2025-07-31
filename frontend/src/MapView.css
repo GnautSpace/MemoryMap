@@ -1,0 +1,146 @@
+:root {
+  --bg: #fafafa;
+  --text: #222;
+  --card: #fff;
+  --border: #ddd;
+  --button-bg: #1976d2;
+  --button-hover: #1565c0;
+  --sidebar-bg: #f8f8f8;
+}
+
+.dark-mode {
+  --bg: #1e1e1e;
+  --text: #f0f0f0;
+  --card: #2c2c2c;
+  --border: #444;
+  --button-bg: #3a82f7;
+  --button-hover: #2962ff;
+  --sidebar-bg: #252525;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.map-wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 350px;
+  padding: 1.5rem;
+  background-color: var(--sidebar-bg);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+}
+
+.map-section {
+  flex: 1;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+    height: auto;
+    max-height: 90vh;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .map-wrapper {
+    flex-direction: column;
+  }
+}
+
+.top-bar {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--sidebar-bg);
+  border-bottom: 1px solid var(--border);
+  justify-content: flex-start;
+}
+
+button {
+  background-color: var(--button-bg);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--button-hover);
+}
+
+.sidebar input,
+.sidebar textarea,
+.sidebar select {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  color: var(--text);
+}
+
+.sidebar textarea {
+  resize: vertical;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0;
+  border: 1px solid var(--border);
+  max-height: 150px;
+  overflow-y: auto;
+  background: var(--card);
+  position: absolute;
+  width: 90%;
+  z-index: 1000;
+}
+
+.suggestions li {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.suggestions li:hover {
+  background-color: #e0e0e0;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  background: #eaeaea;
+}
