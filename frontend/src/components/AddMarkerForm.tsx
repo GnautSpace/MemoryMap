@@ -22,7 +22,7 @@ function AddMarkerForm({ onAddMarker }: Props) {
 
         const timeout = setTimeout(async () => {
             try {
-                const res = await fetch(`/api/search?q=${encodeURIComponent(searchQuery)}`);
+                const res = await fetch(`https://memorymap.onrender.com/api/search?q=${encodeURIComponent(searchQuery)}`);
                 const data = await res.json();
                 setSuggestions(data); 
             } catch (err) {
