@@ -12,7 +12,7 @@ type Props = {
 };
 
 
-function MarkerList({ markers, onRouteTo, userLocation, onEdit, onDelete, onUpdate }: Props) {
+function MarkerList({ markers, onRouteTo, userLocation, onDelete, onUpdate }: Props) {
   const [editIndex, setEditIndex] = useState<number | null>(null);
   const [editedMarker, setEditedMarker] = useState<MarkerType | null>(null);
 
